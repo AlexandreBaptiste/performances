@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/benchmarks/">
+    <Project Path="benchmarks/DotNet.Performance.Benchmarks/DotNet.Performance.Benchmarks.csproj" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/DotNet.Performance.Examples/DotNet.Performance.Examples.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/DotNet.Performance.Tests/DotNet.Performance.Tests.csproj" />
+  </Folder>
+</Solution>
