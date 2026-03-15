@@ -95,8 +95,10 @@ public sealed class VectorTDemoTests
     [Fact]
     public void IsHardwareAccelerated_ReturnsBool()
     {
-        // Act & Assert — just verify it doesn't throw and returns a valid bool
+        // Act
         bool accelerated = VectorTDemo.IsHardwareAccelerated;
-        accelerated.Should().Be(accelerated); // tautology to confirm no exception
+
+        // Assert — verify it returns a deterministic boolean (true on modern hardware)
+        accelerated.Should().Be(VectorTDemo.IsHardwareAccelerated);
     }
 }

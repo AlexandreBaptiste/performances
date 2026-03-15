@@ -114,13 +114,13 @@ Highlights from the last run (.NET 10.0.4, 5,000 iterations per method):
 
 | # | Category | Scenario | Naive (ns/op) | Optimized (ns/op) | Gain |
 |:-:|:---------|:---------|:---:|:---:|:---:|
-| 4 | 02 BoxingUnboxing | ArrayList vs List\<int\> (1000) | 35,217 | 2,550 | **+92.8%** ✅ |
-| 5 | 02 BoxingUnboxing | IValue interface vs generic (1000) | 40,049 | 941 | **+97.6%** ✅ |
-| 7 | 03 SpanAndMemory | new byte[] vs stackalloc (256) | 4,696 | 516 | **+89.0%** ✅ |
-| 15 | 08 Inlining | Default vs AggressiveOptimization (10k) | 26,833 | 4,473 | **+83.3%** ✅ |
-| 18 | 10 Reflection | PropertyInfo.GetValue vs cached Func\<\> | 105 | 16 | **+84.7%** ✅ |
-| 19 | 10 Reflection | PropertyInfo.GetValue vs ExpressionTree | 130 | 15 | **+88.1%** ✅ |
-| 27 | 14 Patterns | LINQ Sum vs CollectionsMarshal.AsSpan (10k) | 45,125 | 5,230 | **+88.4%** ✅ |
+| 4 | 02 BoxingUnboxing | ArrayList vs List\<int\> (1000) | 33,387 | 1,964 | **+94.1%** ✅ |
+| 5 | 02 BoxingUnboxing | IValue interface vs generic (1000) | 33,699 | 2,768 | **+91.8%** ✅ |
+| 7 | 03 SpanAndMemory | new byte[] vs stackalloc (256) | 3,807 | 221 | **+94.2%** ✅ |
+| 15 | 08 Inlining | Default vs AggressiveOptimization (10k) | 26,701 | 3,179 | **+88.1%** ✅ |
+| 18 | 10 Reflection | PropertyInfo.GetValue vs cached Func\<\> | 155 | 17 | **+88.7%** ✅ |
+| 19 | 10 Reflection | PropertyInfo.GetValue vs ExpressionTree | 109 | 23 | **+78.8%** ✅ |
+| 27 | 14 Patterns | LINQ Sum vs CollectionsMarshal.AsSpan (10k) | 32,281 | 3,794 | **+88.2%** ✅ |
 
 > Some scenarios show negative gains (e.g. ArrayPool at small sizes, FrozenDictionary on 100 keys). This is intentional — the ⚠️ cases demonstrate that optimizations are **workload-scale-dependent**. See [quick-comparison.md](quick-comparison.md) for the full table and explanations.
 

@@ -21,7 +21,7 @@ public class ArrayPoolBenchmark
     /// <summary>
     /// Naive: allocates a new <see cref="byte"/> array on every call.
     /// </summary>
-    [Benchmark]
+    [Benchmark(Baseline = true)]
     public long Naive() => _arrayPoolDemo.Naive(Size);
 
     /// <summary>
@@ -29,4 +29,16 @@ public class ArrayPoolBenchmark
     /// </summary>
     [Benchmark]
     public long Optimized() => _arrayPoolDemo.Optimized(Size);
+
+    /// <summary>
+    /// Naive MemoryPool: allocates a new <see cref="byte"/> array on every call.
+    /// </summary>
+    [Benchmark]
+    public long MemoryPoolNaive() => _memoryPoolDemo.ProcessWithNew(Size);
+
+    /// <summary>
+    /// Optimized: rents from <see cref="System.Buffers.MemoryPool{T}.Shared"/> — no per-call allocation.
+    /// </summary>
+    [Benchmark]
+    public long MemoryPoolOptimized() => _memoryPoolDemo.ProcessWithMemoryPool(Size);
 }
